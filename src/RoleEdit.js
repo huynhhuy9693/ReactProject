@@ -1,38 +1,37 @@
 
-import { type } from "@testing-library/user-event/dist/type";
 import { useEffect, useState } from "react"
 import { useParams,useNavigate } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 
 const api = 'http://localhost:8080';
-const CategoryEdit=()=>{
+const RoleEdit=()=>{
     const info={name:'', status:''};
-    const [categories, setCategory] = useState(info);
+    const [roles, setRole] = useState(info);
     const navigate = useNavigate();
     const {id} = useParams();
 
     useEffect(()=>{
         if(id!='new'){
-            fetch(api+'/admin_product/category/${id}')
+            fetch(api+'/admin_user/role/${id}')
             .then(response=>response.json())
-            .then(data=>setCategory(data));
+            .then(data=>setRole(data));
         }
         
-    },[id,setCategory]);
+    },[id,setRole]);
 
     const handleChange =(event)=>{
         const{name, value}= event.target
-        setCategory({...categories,[name]: value})                    
+        setRole({...roles,[name]: value})                    
     }
         
     const handleSubmit = async(event)=>{
         event.preventDefault();
 
-        await fetch("http://localhost:8080/admin_product/category"+(categories.id?'/'+categories.id: ''),
+        await fetch("http://localhost:8080/admin_user/role"+(roles.id?'/'+roles.id: ''),
         {
             mode:'no-cors',
             cache:'no-cache',
-            method:(categories.id)?'PUT':'POST',
+            method:(roles.id)?'PUT':'POST',
             headers: {
                 
                 'Accept': 'application/json',
@@ -40,14 +39,14 @@ const CategoryEdit=()=>{
                 
                 
               },         
-              body:JSON.stringify(categories),
+              body:JSON.stringify(roles),
               
         });
         
-        setCategory(info);       
-        navigate('/categories');       
+        setRole(info);       
+        navigate('/roles');       
     }
-    const title=<h2>{categories.id ? 'Edit' : 'Add'}</h2>;
+    const title=<h2>{roles.id ? 'Edit' : 'Add'}</h2>;
     return(
         <div>
             <Container>
@@ -56,7 +55,7 @@ const CategoryEdit=()=>{
             <Form onSubmit={handleSubmit}>  
                 <FormGroup>
                 <Label for="name">Name</Label>
-            <Input type="text" name="name" id="name" value={categories.name || ""}
+            <Input type="text" name="name" id="name" value={roles.name || ""}
                    onChange={handleChange} autoComplete="name"/>
                 </FormGroup>
                 <Button color="primary" type="submit">Submit</Button>
@@ -64,4 +63,4 @@ const CategoryEdit=()=>{
         </div>
     )
 }
-export default CategoryEdit;
+export default RoleEdit;

@@ -8,6 +8,9 @@ const Home = () => {
     <div>
       <Container fluid>
         <Button color="link"><Link to="/categories">Manage Category</Link></Button>
+        <Button color="link"><Link to="/products">Manage Product</Link></Button>
+        <Button color="link"><Link to="/roles">Manage Role</Link></Button>
+        <Button color="link"><Link to="/users">Manage User</Link></Button>
       </Container>
     </div>
   );
