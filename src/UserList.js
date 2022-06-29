@@ -1,28 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import './App.css';
 import { Container, Table,Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-const UserList = () => {
 
-  const [users, setUser] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const api ='http://localhost:8080'
 
-  useEffect(() => {
-    setLoading(true);
 
-    fetch(api+'/admin_user/users')
-      .then(response => response.json())
-      .then(data => {
-        setUser(data);
-        setLoading(false);
-      })
-  }, []);
 
-  if (loading) {
-    return <p>Loading...</p>;
+class UserList extends Component
+{
+  state = {
+    isLoading : true,
+    users : []
+  };
+
+  async componentDidMount()
+  {
+    const response = await fetch("http://localhost:8080/admin_user/users");
+    const body = await response.json();
+    this.setState({users:body, isLoading: false});
   }
-  const userList = users.map(item=>{
+
+  render()
+  {
+    const {users, isLoading}= this.state;
+    if(isLoading)
+    {
+      return <p>Loading ...</p>
+    }
+     const userList = users.map(item=>{
     return <tr key={item.id}>
         <td>{item.id}</td>
         <td>{item.name}</td>
@@ -32,14 +37,14 @@ const UserList = () => {
         <td>{item.phone}</td>
         <td>{item.dob}</td>
         <td>{item.status ? 'Action':'Not Action'}</td>
-        {/* <td >{item.category.name}</td> */}
+        <td> <Button size="sm" color="primary" href={"/users/"+item.id}>Edit</Button></td>
     </tr>
   })
   return (
     <Container fluid>
         <div className="float-end">  
-        <Button color="success" href="/product/new">Add</Button>               
-          <h2>Category_List</h2>
+        <Button color="success" href="/users/new">Add</Button>               
+          <h2>User_List</h2>
           <Table className='mt -4'>
             <thead>
                 <tr>  
@@ -63,5 +68,6 @@ const UserList = () => {
     </Container>
   );
 };
+}
 
 export default UserList;

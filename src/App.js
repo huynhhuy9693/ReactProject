@@ -10,6 +10,7 @@ import RoleList from './RoleList';
 import UserList from './UserList';
 import ProductEdit from './ProductEdit';
 import RoleEdit from './RoleEdit';
+import UserEdit from './UserEdit';
 
 function App()
 {
@@ -26,7 +27,7 @@ function App()
         <Route path='/categories/:id' element={<CategoryEdit/>}/>
         <Route path='/products/:id' element={<ProductEdit/>}/>
         <Route path='/roles/:id' element={<RoleEdit/>}/>
-        {/* // <Route path='/users/:id' element={<UserEdit/>}/> */}
+        <Route path='/users/:id' element={<UserEdit/>}/>
       </Routes>
     </Router>
   )

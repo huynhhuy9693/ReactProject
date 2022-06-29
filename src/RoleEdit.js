@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react"
 import { useParams,useNavigate } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const api = 'http://localhost:8080';
 const RoleEdit=()=>{
@@ -12,7 +13,7 @@ const RoleEdit=()=>{
 
     useEffect(()=>{
         if(id!='new'){
-            fetch(api+'/admin_user/role/${id}')
+            fetch(api+`/admin_user/role/${id}`)
             .then(response=>response.json())
             .then(data=>setRole(data));
         }
@@ -29,7 +30,7 @@ const RoleEdit=()=>{
 
         await fetch("http://localhost:8080/admin_user/role"+(roles.id?'/'+roles.id: ''),
         {
-            mode:'no-cors',
+            
             cache:'no-cache',
             method:(roles.id)?'PUT':'POST',
             headers: {

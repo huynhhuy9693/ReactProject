@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react"
 import { useParams,useNavigate } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const api = 'http://localhost:8080';
 const ProductEdit=()=>{
@@ -12,7 +13,7 @@ const ProductEdit=()=>{
 
     useEffect(()=>{
         if(id!='new'){
-            fetch(api+'/admin_product/product/${id}')
+            fetch(api+`/admin_product/product/${id}`)
             .then(response=>response.json())
             .then(data=>setProduct(data));
         }
@@ -29,7 +30,7 @@ const ProductEdit=()=>{
 
         await fetch("http://localhost:8080/admin_product/product"+(products.id?'/'+products.id: ''),
         {
-            mode:'no-cors',
+            
             cache:'no-cache',
             method:(products.id)?'PUT':'POST',
             headers: {
@@ -63,11 +64,11 @@ const ProductEdit=()=>{
                     <Input type="text" name="price" id="price" value={products.price || ""}
                     onChange={handleChange} autoComplete="price"/>
                 </FormGroup>
-                <FormGroup>
+                {/* <FormGroup>
                 <Label for="img_url">IMAGE</Label>
                     <Input type="file" name="img_url" id="img_url" value={products.img_url ||""}
                     onChange={handleChange} autoComplete="img_url"/>
-                </FormGroup>
+                </FormGroup> */}
                 <FormGroup>
                 <Label for="quantity">QUANTITY</Label>
                     <Input type="text" name="quantity" id="quantity" value={products.quantity||""}
