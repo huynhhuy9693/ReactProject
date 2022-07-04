@@ -17,13 +17,13 @@ class ReportProduct extends Component
     const response = await fetch("http://localhost:8080/report/products");
     const body = await response.json();  
     this.setState({products:body, isLoading: false});
-    
   }
  
 
   render()
   {
     const {products, isLoading}= this.state;
+
     
     
 
@@ -48,7 +48,7 @@ class ReportProduct extends Component
           <Container fluid>
               <div className="float-end">                           
                 <h2>Product_Report</h2>
-                    <a href='' download="reports">download</a>
+                    <a href='http://localhost:8080/report/dowload' download="reports">download</a>
                 <Table className='mt -4'>
                   <thead>
                       <tr>  

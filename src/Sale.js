@@ -14,7 +14,7 @@ class ProductList extends Component
 
   async componentDidMount()
   {
-    const response = await fetch("http://localhost:8080/admin-product/products");
+    const response = await fetch("http://localhost:8080/admin-product/product/all");
     const body = await response.json();
     this.setState({products:body, isLoading: false});
     console.log(body)

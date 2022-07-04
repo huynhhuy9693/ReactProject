@@ -14,7 +14,7 @@ class ProductList extends Component
 
   async componentDidMount()
   {
-    const response = await fetch("http://localhost:8080/admin-product/products");
+    const response = await fetch("http://localhost:8080/admin-product/product/all");
     const body = await response.json();
     this.setState({products:body, isLoading: false});
     console.log(body)
@@ -39,7 +39,7 @@ class ProductList extends Component
               <td>{item.price}</td>
               {/* <td><img src={item.img_url} width="150px" height="200px"/></td> */}
               <td>{item.quantity}</td>             
-              <td>{item.status ? 'Action':'Not Action'}</td>
+              <td>{item.status ? 'Active':'In-Active'}</td> 
               <td>{item.categoryId?.name}</td>
               <td> <Button size="sm" color="primary" href={"/products/"+item.id}>Edit</Button></td>
           </tr>

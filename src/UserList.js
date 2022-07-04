@@ -15,7 +15,7 @@ class UserList extends Component
 
   async componentDidMount()
   {
-    const response = await fetch("http://localhost:8080/admin-user/users");
+    const response = await fetch("http://localhost:8080/admin-user/user/all");
     const body = await response.json();
     console.log(body)
     this.setState({users:body, isLoading: false});
@@ -37,7 +37,7 @@ class UserList extends Component
         <td>{item.email}</td>
         <td>{item.phone}</td>
         <td>{item.dob}</td>
-        <td>{item.status ? 'Action':'Not Action'}</td>
+        <td>{item.status ? 'Active':'In-Active'}</td> 
         <td>{item.roleId?.name}</td>
         <td> <Button size="sm" color="primary" href={"/users/"+item.id}>Edit</Button></td>
     </tr>

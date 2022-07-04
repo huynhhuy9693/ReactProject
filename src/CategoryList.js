@@ -16,9 +16,10 @@ class CategoryList extends Component
   
   async componentDidMount()
   {
-    const response = await fetch("http://localhost:8080/admin-product/categories");
+    const response = await fetch("http://localhost:8080/admin-product/category/all");
+    
     const body = await response.json();
-    console.log(body)
+    
     this.setState({categories:body, isLoading: false});
     
   }
@@ -35,7 +36,7 @@ class CategoryList extends Component
           return <tr key={item.id}>
               <td>{item.id}</td>
               <td>{item.name}</td>
-              <td>{item.status?"Action": "Not Action"}</td>
+              <td>{item.status ? 'Active':'In-Active'}</td> 
               <td> <Button size="sm" color="primary" href={"/categories/"+item.id}>Edit</Button></td>
           </tr>
         })

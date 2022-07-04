@@ -74,8 +74,8 @@ const CategoryEdit=()=>{
                 <FormGroup>
                 <Label for="status">STATUS</Label>
                     <select value={categories.status} onChange={handleChange} name="status" id="status">
-                        <option value="true">ACTION</option>
-                        <option value="false">NOT ACTION</option>
+                        <option value="true">ACTIVE</option>
+                        <option value="false">IN-ACTIVE</option>
                     </select>
                 </FormGroup>
                 <Button color="primary" type="submit">Submit</Button>

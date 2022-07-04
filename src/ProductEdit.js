@@ -25,18 +25,7 @@ const ProductEdit=()=>{
         
     },[id,setProduct]);
 
-    // const getOption = async(event)=>
-    // {
-    //     event.preventDefault();
-    //     await fetch("http://localhost:8080/admin_product/categories",
-    //     {
-    //         cache:'no-cache',
-    //         method:'GET',
-    //         body:JSON.stringify(categories)
-            
-    //     });
-    //     navigate('/products')
-    // }
+    
     
 
     const handleChange =(event)=>{
@@ -52,12 +41,9 @@ const ProductEdit=()=>{
             
             cache:'no-cache',
             method:(products.id)?'PUT':'POST',
-            headers: {
-                
+            headers: {               
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                
-                
+                'Content-Type': 'application/json',                               
               },         
               body:JSON.stringify(products),
               
@@ -96,8 +82,8 @@ const ProductEdit=()=>{
                 <FormGroup>
                 <Label for="status">STATUS</Label>
                     <select value={products.status} onChange={handleChange} name="status" id="status">
-                        <option value="true">ACTION</option>
-                        <option value="false">NOT ACTION</option>
+                    <option value="true">ACTIVE</option>
+                        <option value="false">IN-ACTIVE</option>
                     </select>
                 </FormGroup>
                 <Button color="primary" type="submit">Submit</Button>
