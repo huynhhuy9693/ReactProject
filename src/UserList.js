@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import { Container, Table,Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,8 +15,9 @@ class UserList extends Component
 
   async componentDidMount()
   {
-    const response = await fetch("http://localhost:8080/admin_user/users");
+    const response = await fetch("http://localhost:8080/admin-user/users");
     const body = await response.json();
+    console.log(body)
     this.setState({users:body, isLoading: false});
   }
 
@@ -37,6 +38,7 @@ class UserList extends Component
         <td>{item.phone}</td>
         <td>{item.dob}</td>
         <td>{item.status ? 'Action':'Not Action'}</td>
+        <td>{item.roleId?.name}</td>
         <td> <Button size="sm" color="primary" href={"/users/"+item.id}>Edit</Button></td>
     </tr>
   })
@@ -56,6 +58,7 @@ class UserList extends Component
                 <th width="20%">PHONE</th>             
                 <th width="20%">DATE_OF_BIRTH</th>
                 <th width="20%">STATUS</th>
+                <td width="20%">ROLE</td>
                 <th>ACTION</th>
 
                 </tr>

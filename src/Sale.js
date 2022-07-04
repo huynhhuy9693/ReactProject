@@ -34,37 +34,24 @@ class ProductList extends Component
     
     const productList = products.map(item=>{
           return <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.name}</td>
-              <td>{item.price}</td>
-              {/* <td><img src={item.img_url} width="150px" height="200px"/></td> */}
-              <td>{item.quantity}</td>             
-              <td>{item.status ? 'Action':'Not Action'}</td>
-              <td>{item.categoryId?.name}</td>
-              <td> <Button size="sm" color="primary" href={"/products/"+item.id}>Edit</Button></td>
+              <img src={item.img_url} width="100px" height="150px"></img>
+                        <td>{item.name}</td>
+                        <td>{item.price}</td>
+                        <td><Button size="sm" color="primary" href="">CART</Button></td>
           </tr>
         })
         return (
           <Container fluid>
-              <div className="float-end">  
-              <Button color="success" href="/products/new">Add</Button>               
-                <h2>Product_List</h2>
+              <div>                 
+                <h2>Product</h2>
                 <Table className='mt -4'>
                   <thead>
                       <tr>  
-                      <th width="20%">ID</th>               
-                      <th width="20%">NAME</th>
-                      <th width="20%">PRICE</th>               
-                      {/* <th width="20%">IMG</th>  */}
-                      <th width="20%">QUANTITY</th>               
-                      <th width="20%">STATUS</th>    
-                      <th width="20%">CATEGORY</th>       
-                      <th width="10%">ACTION</th>
+                        
                       </tr>
                   </thead>
                   <tbody>
-                      {productList}
-                     
+                      {productList}                    
                   </tbody>
                 </Table>          
               </div>      

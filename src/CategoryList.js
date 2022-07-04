@@ -5,22 +5,28 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 class CategoryList extends Component
+
 {
+  
   state = {
     isLoading : true,
-    categories : []
-  };
+    categories : [],
 
+  };
+  
   async componentDidMount()
   {
-    const response = await fetch("http://localhost:8080/admin_product/categories");
+    const response = await fetch("http://localhost:8080/admin-product/categories");
     const body = await response.json();
+    console.log(body)
     this.setState({categories:body, isLoading: false});
+    
   }
-
+ 
   render()
   {
-    const {categories, isLoading}= this.state;
+    const {categories,isLoading}= this.state;
+
     if(isLoading)
     {
       return <p>Loading ...</p>
@@ -29,6 +35,7 @@ class CategoryList extends Component
           return <tr key={item.id}>
               <td>{item.id}</td>
               <td>{item.name}</td>
+              <td>{item.status?"Action": "Not Action"}</td>
               <td> <Button size="sm" color="primary" href={"/categories/"+item.id}>Edit</Button></td>
           </tr>
         })
@@ -41,7 +48,8 @@ class CategoryList extends Component
                   <thead>
                       <tr>  
                       <th width="20%">ID</th>               
-                      <th width="20%">NAME</th>              
+                      <th width="20%">NAME</th>        
+                      <th width="20%">STATUS</th>      
                       <th width="10%">ACTION</th>
                       </tr>
                   </thead>
@@ -55,3 +63,4 @@ class CategoryList extends Component
   }
 }           
      export default CategoryList;
+

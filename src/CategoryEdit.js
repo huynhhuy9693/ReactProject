@@ -1,22 +1,19 @@
 
-import { type } from "@testing-library/user-event/dist/type";
 import { useEffect, useState } from "react"
 import { useParams,useNavigate } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
-import AsyncSelect from 'react-select/async';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const api = 'http://localhost:8080';
 const CategoryEdit=()=>{
-    const info={name:'', status:''};
-    const state={selectValue: ""};
+    const info={name:'',status:''};
     const [categories, setCategory] = useState(info);
     const navigate = useNavigate();
     const {id} = useParams();
-    console.log("id : ",id)
+    
     useEffect(()=>{
         if(id!='new'){
-            fetch(api+`/admin_product/category/${id}`)
+            fetch(api+`/admin-product/category/${id}`)
             .then(response=>response.json())
             .then(data=>setCategory(data));
             
@@ -25,16 +22,24 @@ const CategoryEdit=()=>{
    },[id,setCategory]);
    
     const handleChange =(event)=>{
-        const{name, value}= event.target
+        const{name,status, value}= event.target       
         setCategory({...categories,[name]: value})
-        this.setState({selectValue:event.target.value})
-        console.log(event.target.value)              
+        // setCategory({...categories,[status]:value})
+        console.log(categories)
+                     
     }
-    console.log(categories)
+    // const statusChange=(event)=>
+    // {
+    //     console.log(event.target.value)
+    //     const{_status, value}= event.target.value
+    //     setCategory({...categories.status,[_status]:event.target.value})
+    //     console.log(categories)
+    // }
+    
     const handleSubmit = async(event)=>{
         event.preventDefault();
 
-        await fetch("http://localhost:8080/admin_product/category"+(categories.id?'/'+categories.id: ''),
+        await fetch("http://localhost:8080/admin-product/category"+(categories.id?'/'+categories.id: ''),
         {
             
             cache:'no-cache',
@@ -68,9 +73,9 @@ const CategoryEdit=()=>{
                 </FormGroup>
                 <FormGroup>
                 <Label for="status">STATUS</Label>
-                    <select value={categories.status} onChange={handleChange}>
-                        <option value="1">ACTION</option>
-                        <option value="0">NOT ACTION</option>
+                    <select value={categories.status} onChange={handleChange} name="status" id="status">
+                        <option value="true">ACTION</option>
+                        <option value="false">NOT ACTION</option>
                     </select>
                 </FormGroup>
                 <Button color="primary" type="submit">Submit</Button>

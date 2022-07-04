@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component} from 'react';
 import './App.css';
 import { Container, Table,Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,11 +12,10 @@ class RoleList extends Component
 
   async componentDidMount()
   {
-    const response = await fetch("http://localhost:8080/admin_user/roles");
+    const response = await fetch("http://localhost:8080/admin-user/roles");
     const body = await response.json();
     this.setState({roles:body, isLoading: false});
   }
-
   render()
   {
     const {roles, isLoading}= this.state;
@@ -28,6 +27,7 @@ class RoleList extends Component
           return <tr key={item.id}>
               <td>{item.id}</td>
               <td>{item.name}</td>
+              <td>{item.status?"Action":"Not Action"}</td>            
               <td> <Button size="sm" color="primary" href={"/roles/"+item.id}>Edit</Button></td>
           </tr>
         })

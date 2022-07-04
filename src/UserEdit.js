@@ -13,7 +13,7 @@ const UserEdit=()=>{
 
     useEffect(()=>{
         if(id!='new'){
-            fetch(api+`/admin_user/user/${id}`)
+            fetch(api+`/admin-user/user/${id}`)
             .then(response=>response.json())
             .then(data=>setUser(data));
         }
@@ -21,14 +21,14 @@ const UserEdit=()=>{
     },[id,setUser]);
 
     const handleChange =(event)=>{
-        const{name, value}= event.target
+        const{name,status, value}= event.target
         setUser({...users,[name]: value})                    
     }
         
     const handleSubmit = async(event)=>{
         event.preventDefault();
 
-        await fetch("http://localhost:8080/admin_user/user"+(users.id?'/'+users.id: ''),
+        await fetch("http://localhost:8080/admin-user/user"+(users.id?'/'+users.id: ''),
         {
          
             cache:'no-cache',
@@ -83,6 +83,13 @@ const UserEdit=()=>{
                 <Label for="dob">DATE_OF_BIRTH</Label>
                     <Input type="date" name="dob" id="dob" value={users.dob||""}
                     onChange={handleChange} autoComplete="quantity"/>
+                </FormGroup>
+                <FormGroup>
+                <Label for="status">STATUS</Label>
+                    <select value={users.status} onChange={handleChange} name="status" id="status">
+                        <option value="true">ACTION</option>
+                        <option value="false">NOT ACTION</option>
+                    </select>
                 </FormGroup>
                 <Button color="primary" type="submit">Submit</Button>
             </Form>

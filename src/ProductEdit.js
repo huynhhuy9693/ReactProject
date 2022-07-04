@@ -4,21 +4,40 @@ import { useParams,useNavigate } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
+
 const api = 'http://localhost:8080';
 const ProductEdit=()=>{
     const info={name:'', status:''};
     const [products, setProduct] = useState(info);
+    // const [categories, setCategory] = [];
     const navigate = useNavigate();
     const {id} = useParams();
 
+   
+
     useEffect(()=>{
         if(id!='new'){
-            fetch(api+`/admin_product/product/${id}`)
+            fetch(api+`/admin-product/product/${id}`)
             .then(response=>response.json())
             .then(data=>setProduct(data));
         }
         
     },[id,setProduct]);
+
+    // const getOption = async(event)=>
+    // {
+    //     event.preventDefault();
+    //     await fetch("http://localhost:8080/admin_product/categories",
+    //     {
+    //         cache:'no-cache',
+    //         method:'GET',
+    //         body:JSON.stringify(categories)
+            
+    //     });
+    //     navigate('/products')
+    // }
+    
 
     const handleChange =(event)=>{
         const{name, value}= event.target
@@ -28,7 +47,7 @@ const ProductEdit=()=>{
     const handleSubmit = async(event)=>{
         event.preventDefault();
 
-        await fetch("http://localhost:8080/admin_product/product"+(products.id?'/'+products.id: ''),
+        await fetch("http://localhost:8080/admin-product/product"+(products.id?'/'+products.id: ''),
         {
             
             cache:'no-cache',
@@ -73,6 +92,13 @@ const ProductEdit=()=>{
                 <Label for="quantity">QUANTITY</Label>
                     <Input type="text" name="quantity" id="quantity" value={products.quantity||""}
                     onChange={handleChange} autoComplete="quantity"/>
+                </FormGroup>
+                <FormGroup>
+                <Label for="status">STATUS</Label>
+                    <select value={products.status} onChange={handleChange} name="status" id="status">
+                        <option value="true">ACTION</option>
+                        <option value="false">NOT ACTION</option>
+                    </select>
                 </FormGroup>
                 <Button color="primary" type="submit">Submit</Button>
             </Form>

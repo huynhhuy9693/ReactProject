@@ -13,7 +13,7 @@ const RoleEdit=()=>{
 
     useEffect(()=>{
         if(id!='new'){
-            fetch(api+`/admin_user/role/${id}`)
+            fetch(api+`/admin-user/role/${id}`)
             .then(response=>response.json())
             .then(data=>setRole(data));
         }
@@ -21,14 +21,14 @@ const RoleEdit=()=>{
     },[id,setRole]);
 
     const handleChange =(event)=>{
-        const{name, value}= event.target
+        const{name,status, value}= event.target
         setRole({...roles,[name]: value})                    
     }
         
     const handleSubmit = async(event)=>{
         event.preventDefault();
 
-        await fetch("http://localhost:8080/admin_user/role"+(roles.id?'/'+roles.id: ''),
+        await fetch("http://localhost:8080/admin-user/role"+(roles.id?'/'+roles.id: ''),
         {
             
             cache:'no-cache',
@@ -58,6 +58,13 @@ const RoleEdit=()=>{
                 <Label for="name">Name</Label>
             <Input type="text" name="name" id="name" value={roles.name || ""}
                    onChange={handleChange} autoComplete="name"/>
+                </FormGroup>
+                <FormGroup>
+                <Label for="status">STATUS</Label>
+                    <select value={roles.status} onChange={handleChange} name="status" id="status">
+                        <option value="true">ACTION</option>
+                        <option value="false">NOT ACTION</option>
+                    </select>
                 </FormGroup>
                 <Button color="primary" type="submit">Submit</Button>
             </Form>
