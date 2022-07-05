@@ -50,16 +50,16 @@ class UserList extends Component
           <Table className='mt -4'>
             <thead>
                 <tr>  
-                <th width="20%">ID</th>               
-                <th width="20%">NAME</th>
-                <th width="20%">USER_NAME</th>               
-                <th width="20%">PASS_WORD</th> 
+                <th width="5%">ID</th>               
+                <th width="10%">NAME</th>
+                <th width="10%">USER_NAME</th>               
+                <th width="10%">PASS_WORD</th> 
                 <th width="20%">EMAIL</th>               
-                <th width="20%">PHONE</th>             
-                <th width="20%">DATE_OF_BIRTH</th>
-                <th width="20%">STATUS</th>
-                <td width="20%">ROLE</td>
-                <th>ACTION</th>
+                <th width="15%">PHONE</th>             
+                <th width="10%">DATE_OF_BIRTH</th>
+                <th width="10%">IS_ACTIVE</th>
+                <td width="10%">ROLE</td>
+                <th width="10%">ACTION</th>
 
                 </tr>
             </thead>

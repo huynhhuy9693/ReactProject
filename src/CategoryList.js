@@ -36,13 +36,13 @@ class CategoryList extends Component
           return <tr key={item.id}>
               <td>{item.id}</td>
               <td>{item.name}</td>
-              <td>{item.status ? 'Active':'In-Active'}</td> 
+              {/* <td>{item.status ? 'Active':'In-Active'}</td>  */}
               <td> <Button size="sm" color="primary" href={"/categories/"+item.id}>Edit</Button></td>
           </tr>
         })
         return (
           <Container fluid>
-              <div className="float-end">  
+              <div>  
               <Button color="success" href="/categories/new">Add</Button>               
                 <h2>Category_List</h2>
                 <Table className='mt -4'>
@@ -50,7 +50,7 @@ class CategoryList extends Component
                       <tr>  
                       <th width="20%">ID</th>               
                       <th width="20%">NAME</th>        
-                      <th width="20%">STATUS</th>      
+                      {/* <th width="20%">STATUS</th>       */}
                       <th width="10%">ACTION</th>
                       </tr>
                   </thead>

@@ -62,30 +62,30 @@ const UserEdit=()=>{
                 <FormGroup>
                 <Label for="userName">USER_NAME</Label>
                     <Input type="text" name="userName" id="userName" value={users.userName || ""}
-                    onChange={handleChange} autoComplete="price"/>
+                    onChange={handleChange} autoComplete="userName"/>
                 </FormGroup>
                 <FormGroup>
                 <Label for="passWord">PASS_WORD</Label>
                     <Input type="text" name="passWord" id="passWord" value={users.passWord ||""}
-                    onChange={handleChange} autoComplete="img_url"/>
+                    onChange={handleChange} autoComplete="passWord"/>
                 </FormGroup>
                 <FormGroup>
                 <Label for="email">EMAIL</Label>
                     <Input type="text" name="email" id="email" value={users.email||""}
-                    onChange={handleChange} autoComplete="quantity"/>
+                    onChange={handleChange} autoComplete="email"/>
                 </FormGroup>
                 <FormGroup>
                 <Label for="phone">PHONE</Label>
                     <Input type="text" name="phone" id="phone" value={users.phone||""}
-                    onChange={handleChange} autoComplete="quantity"/>
+                    onChange={handleChange} autoComplete="phone"/>
                 </FormGroup>
                 <FormGroup>
-                <Label for="dob">DATE_OF_BIRTH</Label>
-                    <Input type="date" name="dob" id="dob" value={users.dob||""}
-                    onChange={handleChange} autoComplete="quantity"/>
-                </FormGroup>
+                 <Label for="dob">DATE_OF_BIRTH</Label>
+                     <Input type="date" name="dob" id="dob" value={users.dob||""}
+                     onChange={handleChange} autoComplete="quantity"/>
+                 </FormGroup>
                 <FormGroup>
-                <Label for="status">STATUS</Label>
+                <Label for="status">IS_ACTIVE</Label>
                     <select value={users.status} onChange={handleChange} name="status" id="status">
                     <option value="true">ACTIVE</option>
                         <option value="false">IN-ACTIVE</option>

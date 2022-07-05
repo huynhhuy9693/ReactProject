@@ -39,8 +39,8 @@ class ReportProduct extends Component
               <td>{item.price}</td>
               {/* <td><img src={item.img_url} width="150px" height="200px"/></td> */}
               <td>{item.quantity}</td>  
-              <td></td>
-              <td></td>                          
+              <td>{item.quantity_sold}</td>
+              <td>{item.quantity_present}</td>                          
               <td>{item.status ? 'Active':'In-Active'}</td>         
           </tr>
         })
@@ -52,14 +52,14 @@ class ReportProduct extends Component
                 <Table className='mt -4'>
                   <thead>
                       <tr>  
-                      <th width="5%">ID</th>               
+                      <th width="10%">ID</th>               
                       <th width="20%">NAME</th>
                       <th width="20%">PRICE</th>               
                       {/* <th width="20%">IMG</th>  */}
                       <th width="20%">QUANTITY TOTAL</th>
                       <th width="10%">SOLD</th>
                       <th width="20%">QUANTITY PRESENT</th>                             
-                      <th width="20%">STATUS</th>                               
+                      <th width="20%">IS_ACTIVE</th>                               
                       </tr>
                   </thead>
                   <tbody>

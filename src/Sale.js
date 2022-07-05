@@ -34,7 +34,7 @@ class ProductList extends Component
     
     const productList = products.map(item=>{
           return <tr key={item.id}>
-              <img src={item.img_url} width="100px" height="150px"></img>
+              <td><img src={item.img_url} width="100px" height="150px"></img></td>
                         <td>{item.name}</td>
                         <td>{item.price}</td>
                         <td><Button size="sm" color="primary" href="">CART</Button></td>

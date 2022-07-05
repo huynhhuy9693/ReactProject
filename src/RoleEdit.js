@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const api = 'http://localhost:8080';
 const RoleEdit=()=>{
-    const info={name:'', status:''};
+    const info={name:'', isActive:''};
     const [roles, setRole] = useState(info);
     const navigate = useNavigate();
     const {id} = useParams();
@@ -21,7 +21,7 @@ const RoleEdit=()=>{
     },[id,setRole]);
 
     const handleChange =(event)=>{
-        const{name,status, value}= event.target
+        const{name, value}= event.target
         setRole({...roles,[name]: value})                    
     }
         
