@@ -71,13 +71,13 @@ const CategoryEdit=()=>{
                     <Input type="text" name="name" id="name" value={categories.name || ""}
                    onChange={handleChange} autoComplete="name"/>
                 </FormGroup>
-                <FormGroup>
+                {/* <FormGroup>
                 <Label for="status">STATUS</Label>
                     <select value={categories.status} onChange={handleChange} name="status" id="status">
                         <option value="true">ACTIVE</option>
                         <option value="false">IN-ACTIVE</option>
                     </select>
-                </FormGroup>
+                </FormGroup> */}
                 <Button color="primary" type="submit">Submit</Button>
             </Form>
         </div>

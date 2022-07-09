@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const api = 'http://localhost:8080';
 const ProductEdit=()=>{
-    const info={name:'', status:''};
+    const info={name:'', isActive:''};
     const [products, setProduct] = useState(info);
     // const [categories, setCategory] = [];
     const navigate = useNavigate();
@@ -80,12 +80,16 @@ const ProductEdit=()=>{
                     onChange={handleChange} autoComplete="quantity"/>
                 </FormGroup>
                 <FormGroup>
+<<<<<<< HEAD
                 <Label for="quantityPresent">QUANTITY_PRESENT</Label>
                     <Input type="text" name="quantityPresent" id="quantityPresent" value={products.quantityPresent||""}
                     onChange={handleChange} autoComplete="quantityPresent"/>
                 </FormGroup>
                 <FormGroup>
                 <Label for="status">STATUS</Label>
+=======
+                <Label for="status">IS_ACTIVE</Label>
+>>>>>>> e0258f7e373e9ba6e787973ca70c9e4cf6fba58d
                     <select value={products.status} onChange={handleChange} name="status" id="status">
                     <option value="true">ACTIVE</option>
                         <option value="false">IN-ACTIVE</option>

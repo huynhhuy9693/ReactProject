@@ -5,7 +5,7 @@ import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const api = 'http://localhost:8080';
-const UserEdit=()=>{
+const Register=()=>{
     const info={name:'', status:''};
     const [users, setUser] = useState(info);
     const navigate = useNavigate();
@@ -45,9 +45,9 @@ const UserEdit=()=>{
         });
         
         setUser(info);       
-        navigate('/users');       
+        navigate('/sale');       
     }
-    const title=<h2>{users.id ? 'Edit' : 'Add'}</h2>;
+    const title=<h2>{users.id ? 'UPDATE' : 'REGISTER'}</h2>;
     return(
         <div>
             <Container>
@@ -83,17 +83,10 @@ const UserEdit=()=>{
                  <Label for="dob">DATE_OF_BIRTH</Label>
                      <Input type="date" name="dob" id="dob" value={users.dob||""}
                      onChange={handleChange} autoComplete="quantity"/>
-                 </FormGroup>
-                <FormGroup>
-                <Label for="status">IS_ACTIVE</Label>
-                    <select value={users.status} onChange={handleChange} name="status" id="status">
-                    <option value="true">ACTIVE</option>
-                        <option value="false">IN-ACTIVE</option>
-                    </select>
-                </FormGroup>
+                 </FormGroup>             
                 <Button color="primary" type="submit">Submit</Button>
             </Form>
         </div>
     )
 }
-export default UserEdit;
+export default Register;

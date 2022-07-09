@@ -27,21 +27,22 @@ class RoleList extends Component
           return <tr key={item.id}>
               <td>{item.id}</td>
               <td>{item.name}</td>
-              <td>{item.status ? 'Active':'In-Active'}</td>            
+              <td>{item.status ?'Active':'In-Active'}</td>            
               <td> <Button size="sm" color="primary" href={"/roles/"+item.id}>Edit</Button></td>
           </tr>
         })
         return (
           <Container fluid>
-              <div className="float-end">  
+              <div >  
               <Button color="success" href="/roles/new">Add</Button>               
                 <h2>Role_List</h2>
                 <Table className='mt -4'>
                   <thead>
                       <tr>  
                       <th width="20%">ID</th>               
-                      <th width="20%">NAME</th>              
-                      <th width="10%">ACTION</th>
+                      <th width="20%">NAME</th> 
+                      <th width="20">IS_ACTIVE</th>             
+                      <th width="20%">ACTION</th>
                       </tr>
                   </thead>
                   <tbody>

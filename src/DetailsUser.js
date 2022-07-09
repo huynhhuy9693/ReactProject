@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import { Container, Table ,Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useParams } from 'react-router-dom';
 
 
 
 
-class UserList extends Component
+class DetailsUser extends Component
 {
   state = {
     isLoading : true,
@@ -15,7 +16,8 @@ class UserList extends Component
 
   async componentDidMount()
   {
-    const response = await fetch("http://localhost:8080/admin-user/user/all");
+    const {id} = useParams;
+    const response = await fetch(`http://localhost:8080/admin-user/user/${id}`);
     const body = await response.json();
     console.log(body)
     this.setState({users:body, isLoading: false});
@@ -37,8 +39,6 @@ class UserList extends Component
         <td>{item.email}</td>
         <td>{item.phone}</td>
         <td>{item.dob}</td>
-        <td>{item.status ? 'Active':'In-Active'}</td> 
-        <td>{item.roleId?.name}</td>
         <td> <Button size="sm" color="primary" href={"/users/"+item.id}>Edit</Button></td>
     </tr>
   })
@@ -46,7 +46,7 @@ class UserList extends Component
     <Container fluid>
         <div className="float-end">  
         <Button color="success" href="/users/new">Add</Button>               
-          <h2>User_List</h2>
+          <h2>User_Detail</h2>
           <Table className='mt -4'>
             <thead>
                 <tr>  
@@ -57,8 +57,6 @@ class UserList extends Component
                 <th width="20%">EMAIL</th>               
                 <th width="15%">PHONE</th>             
                 <th width="10%">DATE_OF_BIRTH</th>
-                <th width="10%">IS_ACTIVE</th>
-                <td width="10%">ROLE</td>
                 <th width="10%">ACTION</th>
 
                 </tr>
@@ -73,4 +71,4 @@ class UserList extends Component
 };
 }
 
-export default UserList;
+export default DetailsUser;

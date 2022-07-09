@@ -53,14 +53,20 @@ class ProductList extends Component
                 <Table className='mt -4'>
                   <thead>
                       <tr>  
-                      <th width="20%">ID</th>               
+                      <th width="5%">ID</th>               
                       <th width="20%">NAME</th>
                       <th width="20%">PRICE</th>               
                       {/* <th width="20%">IMG</th>  */}
+<<<<<<< HEAD
                       <th width="20%">QUANTITY</th>   
                       <th width="20%">QUANTITY_PRESENT</th>             
                       <th width="20%">STATUS</th>    
                       {/* <th width="20%">CATEGORY</th>        */}
+=======
+                      <th width="20%">QUANTITY</th>               
+                      <th width="20%">IS_ACTIVE</th>    
+                      <th width="20%">CATEGORY</th>       
+>>>>>>> e0258f7e373e9ba6e787973ca70c9e4cf6fba58d
                       <th width="10%">ACTION</th>
                       </tr>
                   </thead>
