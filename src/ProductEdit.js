@@ -80,6 +80,11 @@ const ProductEdit=()=>{
                     onChange={handleChange} autoComplete="quantity"/>
                 </FormGroup>
                 <FormGroup>
+                <Label for="quantityPresent">QUANTITY_PRESENT</Label>
+                    <Input type="text" name="quantityPresent" id="quantityPresent" value={products.quantityPresent||""}
+                    onChange={handleChange} autoComplete="quantityPresent"/>
+                </FormGroup>
+                <FormGroup>
                 <Label for="status">STATUS</Label>
                     <select value={products.status} onChange={handleChange} name="status" id="status">
                     <option value="true">ACTIVE</option>

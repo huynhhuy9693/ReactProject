@@ -17,6 +17,7 @@ class ReportProduct extends Component
     const response = await fetch("http://localhost:8080/report/products");
     const body = await response.json();  
     this.setState({products:body, isLoading: false});
+
   }
  
 
@@ -36,12 +37,11 @@ class ReportProduct extends Component
           return <tr key={item.id}>
               <td>{item.id}</td>
               <td>{item.name}</td>
-              <td>{item.price}</td>
-              {/* <td><img src={item.img_url} width="150px" height="200px"/></td> */}
-              <td>{item.quantity}</td>  
-              <td></td>
-              <td></td>                          
-              <td>{item.status ? 'Active':'In-Active'}</td>         
+              <td>{item.price}</td>             
+              <td>{item.quantity}</td>
+              <td>{item.quantityPresent}</td>  
+              <td>{(item.quantity-item.quantityPresent)}</td>                        
+              <td>{(item.quantityPresent) >0 ? 'stocking':'Out of stock'}</td>         
           </tr>
         })
         return (
@@ -55,10 +55,9 @@ class ReportProduct extends Component
                       <th width="5%">ID</th>               
                       <th width="20%">NAME</th>
                       <th width="20%">PRICE</th>               
-                      {/* <th width="20%">IMG</th>  */}
                       <th width="20%">QUANTITY TOTAL</th>
-                      <th width="10%">SOLD</th>
-                      <th width="20%">QUANTITY PRESENT</th>                             
+                      <th width="20%">QUANTITY PRESENT</th>
+                      <th width="10%">SOLD</th>                            
                       <th width="20%">STATUS</th>                               
                       </tr>
                   </thead>
