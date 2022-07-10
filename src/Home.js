@@ -12,6 +12,7 @@ const Home = () => {
         <Button color="link"><Link to="/products">Manage Product</Link></Button>
         <Button color="link"><Link to="/roles">Manage Role</Link></Button>
         <Button color="link"><Link to="/users">Manage User</Link></Button>
+        <Button color="link"><Link to="/carts">Manage Cart</Link></Button>
         <Button color="link"><Link to="/reports">Report</Link></Button>
         <Button color="link"><Link to="/sale">User-Page</Link></Button>
         <Button color="link"><Link to="/register">Register</Link></Button>

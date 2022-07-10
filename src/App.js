@@ -16,6 +16,7 @@ import ReportProduct from './ReportProduct';
 import Sale from './Sale';
 import Register from './Register';
 import DetailsUser from './DetailsUser';
+import CartList from './CartList';
 
 function App()
 {
@@ -28,7 +29,8 @@ function App()
         <Route path='/categories' exact={true} element={<CategoryList/>}/>     
         <Route path='/products' exact={true} element={<ProductList/>}/>
         <Route path='/roles' exact={true} element={<RoleList/>}/>
-        <Route path='/users' exact={true} element={<UserList/>}/>s
+        <Route path='/users' exact={true} element={<UserList/>}/>
+        <Route path='/carts' exact={true} element={<CartList/>}/>
         {/*admin - create/edit */}
         <Route path='/categories/:id' element={<CategoryEdit/>}/>
         <Route path='/products/:id' element={<ProductEdit/>}/>
