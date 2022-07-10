@@ -37,20 +37,11 @@ class ReportProduct extends Component
           return <tr key={item.id}>
               <td>{item.id}</td>
               <td>{item.name}</td>
-<<<<<<< HEAD
               <td>{item.price}</td>             
               <td>{item.quantity}</td>
               <td>{item.quantityPresent}</td>  
               <td>{(item.quantity-item.quantityPresent)}</td>                        
               <td>{(item.quantityPresent) >0 ? 'stocking':'Out of stock'}</td>         
-=======
-              <td>{item.price}</td>
-              {/* <td><img src={item.img_url} width="150px" height="200px"/></td> */}
-              <td>{item.quantity}</td>  
-              <td>{item.quantity_sold}</td>
-              <td>{item.quantity_present}</td>                          
-              <td>{item.status ? 'Active':'In-Active'}</td>         
->>>>>>> e0258f7e373e9ba6e787973ca70c9e4cf6fba58d
           </tr>
         })
         return (
@@ -65,15 +56,9 @@ class ReportProduct extends Component
                       <th width="20%">NAME</th>
                       <th width="20%">PRICE</th>               
                       <th width="20%">QUANTITY TOTAL</th>
-<<<<<<< HEAD
                       <th width="20%">QUANTITY PRESENT</th>
                       <th width="10%">SOLD</th>                            
                       <th width="20%">STATUS</th>                               
-=======
-                      <th width="10%">SOLD</th>
-                      <th width="20%">QUANTITY PRESENT</th>                             
-                      <th width="20%">IS_ACTIVE</th>                               
->>>>>>> e0258f7e373e9ba6e787973ca70c9e4cf6fba58d
                       </tr>
                   </thead>
                   <tbody>
