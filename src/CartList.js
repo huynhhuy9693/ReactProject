@@ -29,7 +29,7 @@ class CartList extends Component
   render()
   {
     const {categories,isLoading}= this.state;
-    const {sum,isLoading1}= this.state;
+    const {sum}= this.state;
 
     if(isLoading)
     {
@@ -40,7 +40,8 @@ class CartList extends Component
               <td>{item.id}</td>
               <td>{item.oderNumber}</td>
               <td>{item.status}</td>
-              <td>{item.totalPrice}</td>            
+              <td>{item.totalPrice}</td>
+              <td><Button color="success" href="">details</Button></td>            
               
           </tr>
         })
@@ -55,7 +56,8 @@ class CartList extends Component
                       <th width="20%">ID</th>               
                       <th width="20%">ORDER NUMBER</th>        
                       <th width="20%">STATUS</th>      
-                      <th width="10%">TOTAL-PRICE</th>                     
+                      <th width="10%">TOTAL-PRICE</th>
+                      <th width="10%">ACTION</th>                      
                       </tr>
                   </thead>
                   <tbody>

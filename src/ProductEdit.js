@@ -8,9 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const api = 'http://localhost:8080';
 const ProductEdit=()=>{
-    const info={name:'', isActive:''};
+    const info={name:''};
     const [products, setProduct] = useState(info);
-    // const [categories, setCategory] = [];
     const navigate = useNavigate();
     const {id} = useParams();
 
@@ -48,8 +47,7 @@ const ProductEdit=()=>{
               body:JSON.stringify(products),
               
         });
-        
-        setProduct(info);       
+        setProduct(info);   
         navigate('/products');       
     }
     const title=<h2>{products.id ? 'Edit' : 'Add'}</h2>;
@@ -87,7 +85,7 @@ const ProductEdit=()=>{
                 <FormGroup>
                 <Label for="status">STATUS</Label>
                     <select value={products.status} onChange={handleChange} name="status" id="status">
-                    <option value="true">ACTIVE</option>
+                        <option value="true">ACTIVE</option>
                         <option value="false">IN-ACTIVE</option>
                     </select>
                 </FormGroup>

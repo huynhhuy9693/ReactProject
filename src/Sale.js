@@ -20,18 +20,13 @@ class ProductList extends Component
     console.log(body)
   }
  
-
   render()
   {
     const {products, isLoading}= this.state;
-    
-    
-
     if(isLoading)
     {
       return <p>Loading ...</p>
-    }
-    
+    }   
     const productList = products.map(item=>{
           return <tr key={item.id}>
               <td><img src={item.img_url} width="100px" height="150px"></img></td>

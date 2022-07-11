@@ -6,14 +6,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const api = 'http://localhost:8080';
 const UserEdit=()=>{
-    const info={name:'', status:''};
+    const info={name:''};
     const [users, setUser] = useState(info);
     const navigate = useNavigate();
     const {id} = useParams();
 
     useEffect(()=>{
         if(id!='new'){
-            fetch(api+`/admin-user/user/${id}`)
+            fetch(api+`/admin-user/users/${id}`)
             .then(response=>response.json())
             .then(data=>setUser(data));
         }
@@ -22,7 +22,9 @@ const UserEdit=()=>{
 
     const handleChange =(event)=>{
         const{name, value}= event.target
-        setUser({...users,[name]: value})                    
+        setUser({...users,[name]: value})
+        console.log(value)
+                          
     }
         
     const handleSubmit = async(event)=>{
@@ -36,15 +38,15 @@ const UserEdit=()=>{
             headers: {
                 
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                
+                'Content-Type': 'application/json',               
                 
               },         
               body:JSON.stringify(users),
               
         });
         
-        setUser(info);       
+        setUser(users);
+
         navigate('/users');       
     }
     const title=<h2>{users.id ? 'Edit' : 'Add'}</h2>;
@@ -87,7 +89,7 @@ const UserEdit=()=>{
                 <FormGroup>
                 <Label for="status">IS_ACTIVE</Label>
                     <select value={users.status} onChange={handleChange} name="status" id="status">
-                    <option value="true">ACTIVE</option>
+                        <option value="true">ACTIVE</option>
                         <option value="false">IN-ACTIVE</option>
                     </select>
                 </FormGroup>

@@ -29,21 +29,15 @@ const Register=()=>{
         event.preventDefault();
 
         await fetch("http://localhost:8080/mail/send"+(users.id?'/'+users.id: ''),
-        {
-         
+        {        
             cache:'no-cache',
             method:(users.id)?'PUT':'POST',
-            headers: {
-                
+            headers: {                
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                
-                
+                'Content-Type': 'application/json',                               
               },         
-              body:JSON.stringify(users),
-              
-        });
-        
+              body:JSON.stringify(users),              
+        });       
         setUser(info);       
         navigate('/sale');       
     }

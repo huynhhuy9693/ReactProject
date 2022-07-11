@@ -38,7 +38,7 @@ class UserList extends Component
         <td>{item.phone}</td>
         <td>{item.dob}</td>
         <td>{item.status ? 'Active':'In-Active'}</td> 
-        <td>{item.roleId?.name}</td>
+        {/* <td>{item.roleId?.name}</td> */}
         <td> <Button size="sm" color="primary" href={"/users/"+item.id}>Edit</Button></td>
     </tr>
   })
@@ -58,7 +58,7 @@ class UserList extends Component
                 <th width="15%">PHONE</th>             
                 <th width="10%">DATE_OF_BIRTH</th>
                 <th width="10%">IS_ACTIVE</th>
-                <td width="10%">ROLE</td>
+                {/* <td width="10%">ROLE</td> */}
                 <th width="10%">ACTION</th>
 
                 </tr>
