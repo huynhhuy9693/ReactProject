@@ -17,6 +17,7 @@ import Sale from './Sale';
 import Register from './Register';
 import DetailsUser from './DetailsUser';
 import CartList from './CartList';
+import CartDetail from './CartDetail';
 
 function App()
 {
@@ -30,12 +31,13 @@ function App()
         <Route path='/products' exact={true} element={<ProductList/>}/>
         <Route path='/roles' exact={true} element={<RoleList/>}/>
         <Route path='/users' exact={true} element={<UserList/>}/>
-        <Route path='/carts' exact={true} element={<CartList/>}/>
+        <Route path='/carts' exact={true} element={<CartList/>}/>      
         {/*admin - create/edit */}
         <Route path='/categories/:id' element={<CategoryEdit/>}/>
         <Route path='/products/:id' element={<ProductEdit/>}/>
         <Route path='/roles/:id' element={<RoleEdit/>}/>
         <Route path='/users/:id' element={<UserEdit/>}/>
+        <Route path='/carts/:oderNumber' element={<CartDetail/>}/>
         {/* report */}
         <Route path='/report/products' exact={true} element={<ReportProduct/>}/>
         {/* user */}

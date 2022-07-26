@@ -10,6 +10,7 @@ const UserEdit=()=>{
     const [users, setUser] = useState(info);
     const navigate = useNavigate();
     const {id} = useParams();
+    console.log("---"+id)
 
     useEffect(()=>{
         if(id!='new'){
@@ -30,7 +31,7 @@ const UserEdit=()=>{
     const handleSubmit = async(event)=>{
         event.preventDefault();
 
-        await fetch("http://localhost:8080/mail/send"+(users.id?'/'+users.id: ''),
+        await fetch("http://localhost:8080/admin-user/user"+(users.id?'/'+users.id: ''),
         {
          
             cache:'no-cache',

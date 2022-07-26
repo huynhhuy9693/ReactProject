@@ -39,8 +39,9 @@ class ReportProduct extends Component
               <td>{item.name}</td>
               <td>{item.price}</td>             
               <td>{item.quantity}</td>
-              <td>{item.quantityPresent}</td>  
-              <td>{(item.quantity-item.quantityPresent)}</td>                        
+              <td>{item.quantityPresent}</td>               
+              <td>{(item.quantity-item.quantityPresent)}</td>  
+              <td>{item.delivery}</td>                       
               <td>{(item.quantityPresent) >0 ? 'stocking':'Out of stock'}</td>         
           </tr>
         })
@@ -57,7 +58,8 @@ class ReportProduct extends Component
                       <th width="20%">PRICE</th>               
                       <th width="20%">QUANTITY TOTAL</th>
                       <th width="20%">QUANTITY PRESENT</th>
-                      <th width="10%">SOLD</th>                            
+                      <th width="10%">SOLD</th>  
+                      <th width="10%">DELIVERED</th>                     
                       <th width="20%">STATUS</th>                               
                       </tr>
                   </thead>

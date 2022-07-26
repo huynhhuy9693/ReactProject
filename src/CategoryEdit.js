@@ -22,19 +22,12 @@ const CategoryEdit=()=>{
    },[id,setCategory]);
    
     const handleChange =(event)=>{
-        const{name,status, value}= event.target       
+        const{name, value}= event.target       
         setCategory({...categories,[name]: value})
-        // setCategory({...categories,[status]:value})
         console.log(categories)
                      
     }
-    // const statusChange=(event)=>
-    // {
-    //     console.log(event.target.value)
-    //     const{_status, value}= event.target.value
-    //     setCategory({...categories.status,[_status]:event.target.value})
-    //     console.log(categories)
-    // }
+   
     
     const handleSubmit = async(event)=>{
         event.preventDefault();
